@@ -24,7 +24,6 @@ public class PayMentServiceImpl implements PayMentService {
     @Autowired
     private PayMentMapper payMentMapper;
 
-
     @Override
     public int create(PayMent payMent) {
         return payMentMapper.create(payMent);
