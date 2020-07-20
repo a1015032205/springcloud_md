@@ -14,6 +14,10 @@
         <module>cloud-consumer</module>
         <module>common-db</module>
         <module>eureka-server-7001</module>
+        <module>eureka-server-7002</module>
+        <module>eureke-server-7003</module>
+        <module>cloud-provider-payment8002</module>
+        <module>cloud-provider-payment8003</module>
     </modules>
     <!-- 统一jar包版本管理-->
     <properties>

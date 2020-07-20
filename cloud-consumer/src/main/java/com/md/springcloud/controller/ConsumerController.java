@@ -20,17 +20,17 @@ public class ConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${payMent.url}")
-    private String url;
+    @Value("${payMent.server}")
+    private String server;
 
     @PostMapping
     public Object create(@RequestBody PayMent payMent) {
-        return restTemplate.postForEntity(url + "PayMent/", payMent, CommonResult.class);
+        return restTemplate.postForEntity(server + "PayMent/", payMent, CommonResult.class);
 
     }
 
     @GetMapping("/{id}")
     public Object getPayMentById(@PathVariable(name = "id") Long id) {
-        return restTemplate.getForObject(url + "PayMent/" + id, CommonResult.class);
+        return restTemplate.getForObject(server + "PayMent/" + id, CommonResult.class);
     }
 }
