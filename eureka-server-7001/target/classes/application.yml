@@ -1,0 +1,36 @@
+server:
+  port: 7001
+
+spring:
+  application:
+    name: eureka7001
+
+eureka:
+  instance:
+    ### 域名。最好设置成本机 ip，如果设置的域名，在服务器域名列表中不能映射到真实 ip，会导致通信异常
+    hostname: eureka7001.com
+    ### 开启 ip 配置，默认：false-不开启。我们正常使用 hostname 即可
+    prefer-ip-address: true
+    ## 开启 ip 后，这里需要配置服务器真实 ip
+    ip-address: 127.0.0.1
+  server:
+    ### 是否开启自我保护机制。默认：true-开启。
+    ### 自我保护机制是为了防止服务不是由于自身问题，而是网络抖动，无法及时续约，导致服务信息被误剔除的问题
+    enable-self-preservation: true
+    ### 自我保护时间（续约阈值更新间隔）。默认：900s,15分钟。
+    renewal-threshold-update-interval-ms: 90000
+    ### 续约百分比阈值。默认：0.85。
+    ### 查看每分钟续约的服务次数是否达到 85%，未达到，进入自我保护，当 15分钟内有服务续约则不剔除服务，否则剔除服务
+    renewal-percent-threshold: 0.85
+    ### 剔除间隔时间，默认：60s。每间隔 60s，会判断每个服务是否要被剔除，如果服务超过服务保护时间还没续约，就剔除
+    eviction-interval-timer-in-ms: 60000
+  client:
+    service-url:
+      ### 注册服务集群，要相互注册。目前有三个注册服务，端口分别为：7001,7002,7003，我们服务需要注册到其他注册中心上
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+    ### 是否注册到注册中，默认：true-注册。我们服务集群时，需要注册到注册中心；单独一个注册中心，不推荐注册到注册中心
+    register-with-eureka: true
+    ### 是否拉取注册中心服务列表信息，默认：true-拉取。最好开启，不然 eureka 网页端，看不到任何服务的信息
+    fetch-registry: true
+    ### 拉取服务列表的时间间隔，默认：30s
+    registry-fetch-interval-seconds: 30
