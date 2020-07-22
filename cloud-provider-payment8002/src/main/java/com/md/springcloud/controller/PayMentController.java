@@ -29,11 +29,11 @@ public class PayMentController extends BaseController {
     @PostMapping
     public CommonResult<?> create(@RequestBody PayMent payMent) {
 
-        return new CommonResult<>(200, "服务提供者：" + port, payMentService.create(payMent));
+        return new CommonResult(200, "服务提供者：" + port, payMentService.create(payMent));
     }
 
     @GetMapping("/{id}")
     public CommonResult<?> getPayMentById(@PathVariable(name = "id") Long id) {
-        return new CommonResult<>(200, "服务提供者：" + port, payMentService.getPayMentById(id));
+        return new CommonResult(200, "服务提供者：" + port, payMentService.getPayMentById(id));
     }
 }

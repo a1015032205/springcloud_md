@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+.imi/
+.class/
+将删除 cloud-consumer/target/generated-sources/
+将删除 cloud-provider-payment8001/target/generated-sources/
+将删除 cloud-provider-payment8001/target/generated-test-sources/
+将删除 cloud-provider-payment8002/target/generated-sources/
+将删除 cloud-provider-payment8003/target/generated-sources/
+将删除 common-db/target/generated-sources/
+将删除 eureka-server-7001/target/generated-sources/
+将删除 eureka-server-7002/target/generated-sources/
+将删除 eureke-server-7003/target/generated-sources/
