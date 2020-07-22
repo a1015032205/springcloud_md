@@ -4,7 +4,6 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -16,10 +15,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @MapperScan("com.md.springcloud.dao")
 @EnableTransactionManagement
-@EnableEurekaClient
-@EnableDiscoveryClient
-public class PayMentMain8003 {
+@EnableDiscoveryClient//该注解用于向consul或者zookeeper作为服务中心时注册服务
+public class PayMentMain8005 {
     public static void main(String[] args) {
-        SpringApplication.run(PayMentMain8003.class);
+        SpringApplication.run(PayMentMain8005.class);
     }
 }
