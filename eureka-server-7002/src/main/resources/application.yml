@@ -13,6 +13,7 @@ eureka:
     prefer-ip-address: true
     ## 开启 ip 后，这里需要配置服务器真实 ip
     ip-address: 127.0.0.1
+    instance-id: eureka7002
   server:
     ### 是否开启自我保护机制。默认：true-开启。
     ### 自我保护机制是为了防止服务不是由于自身问题，而是网络抖动，无法及时续约，导致服务信息被误剔除的问题

@@ -151,3 +151,56 @@
 ![image-20200720213259312](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200720213259312.png)
 
 ![image-20200720213310967](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200720213310967.png)
+
+# 修改服务名称和IP显示
+
+![image-20200722202110186](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722202110186.png)
+
+![image-20200722202543131](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722202543131.png)
+
+# 服务发现Discovery
+
+![image-20200722202754578](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722202754578.png)
+
+
+
+![image-20200722205546158](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722205546158.png)
+
+![image-20200722210440574](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722210440574.png)
+
+![image-20200722205627381](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722205627381.png)
+
+# 访问测试
+
+![image-20200722210409063](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722210409063.png)
+
+
+
+
+
+# eureka自我保护
+
+![image-20200722210951616](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722210951616.png)
+
+![image-20200722211009176](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722211009176.png)
+
+![image-20200722211200160](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722211200160.png)
+
+![image-20200722211356044](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722211356044.png)
+
+![image-20200722211428984](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722211428984.png)
+
+
+
+# 修改eureka的心跳时间
+
+服务端
+
+![image-20200722212333432](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722212333432.png)
+
+客户端
+
+![image-20200722212405697](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200722212405697.png)
+
+# eureka停更说明
+

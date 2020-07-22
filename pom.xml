@@ -18,6 +18,7 @@
         <module>eureke-server-7003</module>
         <module>cloud-provider-payment8002</module>
         <module>cloud-provider-payment8003</module>
+        <module>cloud-provider-payment8005-zk</module>
     </modules>
     <!-- 统一jar包版本管理-->
     <properties>

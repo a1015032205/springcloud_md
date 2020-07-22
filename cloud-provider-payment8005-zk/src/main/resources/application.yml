@@ -1,0 +1,25 @@
+server:
+  port: 8005
+
+spring:
+  application:
+    name: cloud-payment-server
+  cloud:
+    zookeeper:
+      connect-string: 127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///cfx?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: a5268413
+
+#logging:
+#  level: info
+#  file:
+#    path: classpath/log.log
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.md.springcloud.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
