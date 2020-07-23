@@ -29,3 +29,15 @@
 ![image-20200723000327762](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200723000327762.png)
 
 ![image-20200723000403094](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200723000403094.png)
+
+# ZK属于临时节点  服务关闭后立马剔除
+
+![image-20200723202311623](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200723202311623.png)
+
+# 新建服务消费ZK模块
+
+测试
+
+![image-20200723205031725](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200723205031725.png)
+
+![image-20200723205051773](C:\Users\秒度\AppData\Roaming\Typora\typora-user-images\image-20200723205051773.png)

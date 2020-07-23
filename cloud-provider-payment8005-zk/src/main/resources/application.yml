@@ -6,7 +6,8 @@ spring:
     name: cloud-payment-server
   cloud:
     zookeeper:
-      connect-string: 127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183
+      connect-string: 127.0.0.1:2181
+     # connect-string: 127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql:///cfx?useUnicode=true&characterEncoding=utf-8&useSSL=false

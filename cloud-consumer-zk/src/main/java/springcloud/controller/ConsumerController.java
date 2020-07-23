@@ -1,15 +1,14 @@
-package com.md.springcloud.controller;
+package springcloud.controller;
 
 import cn.hutool.core.map.MapUtil;
 import com.md.springcloud.pojo.CommonResult;
 import com.md.springcloud.pojo.PayMent;
-import com.md.springcloud.service.PayMentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -19,42 +18,41 @@ import java.util.List;
 /**
  * @Author: 秒度
  * @Email: fangxin.md@Gmail.com
- * @Date: 2020-07-09 20:57
+ * @Date: 2020-07-09 23:24
  * @Description:
  */
-
 @RestController
-@RequestMapping(value = {"/PayMent/zk"})
-public class PayMentController extends BaseController {
+@RequestMapping("consumer/zk")
+public class ConsumerController {
 
     @Autowired
-    @Qualifier(value = "payMentServiceImpl")
-    private PayMentService payMentService;
+    private RestTemplate restTemplate;
 
     @Resource
     private DiscoveryClient discoveryClient;
 
-    @Value("${server.port}")
-    private String port;
-
     @Value("spring.application.name")
     private String serverName;
 
-    @PostMapping
-    public CommonResult<?> create(@RequestBody PayMent payMent) {
+    @Value("${payMent.server}")
+    private String server;
 
-        return new CommonResult(200, "服务提供者：" + port, payMentService.create(payMent));
+    @PostMapping
+    public Object create(@RequestBody PayMent payMent) {
+        return restTemplate.postForEntity(server + "PayMent/zk/", payMent, CommonResult.class);
+
     }
 
     @GetMapping("/{id}")
-    public CommonResult<?> getPayMentById(@PathVariable(name = "id") Long id) {
-        return new CommonResult(200, "服务提供者：" + port, payMentService.getPayMentById(id));
+    public Object getPayMentById(@PathVariable(name = "id") Long id) {
+        return restTemplate.getForObject(server + "PayMent/zk/" + id, CommonResult.class);
     }
 
     @GetMapping(value = {"/getServerInfo"})
     private Object getServerInfo() {
         //获得服务ID
         List<String> services = discoveryClient.getServices();
+
         HashMap<Object, Object> map = new LinkedHashMap<>(16);
         map.put("服务名称", services);
         services.forEach(name -> {
@@ -70,6 +68,8 @@ public class PayMentController extends BaseController {
                 map.put(name, info);
             });
         });
+
+
         return map;
     }
 }

@@ -16,8 +16,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan("com.md.springcloud.dao")
 @EnableTransactionManagement
 @EnableDiscoveryClient//该注解用于向consul或者zookeeper作为服务中心时注册服务
-public class PayMentMain8005 {
+public class PayMentMainZK8005 {
     public static void main(String[] args) {
-        SpringApplication.run(PayMentMain8005.class);
+        SpringApplication.run(PayMentMainZK8005.class);
     }
 }
