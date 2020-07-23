@@ -1,0 +1,27 @@
+server:
+  port: 8007
+
+spring:
+  application:
+    name: cloud-payment-server
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///cfx?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: a5268413
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+
+#logging:
+#  level: info
+#  file:
+#    path: classpath/log.log
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.md.springcloud.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

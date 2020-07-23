@@ -1,0 +1,17 @@
+server:
+  port: 80
+spring:
+  application:
+    name: cloud-consumer-80
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        #hostname:127.0.0.1
+        service-name: ${spring.application.name}
+payMent:
+  # url: http://localhost:8001/
+  server: http://cloud-payment-server/
+
+
