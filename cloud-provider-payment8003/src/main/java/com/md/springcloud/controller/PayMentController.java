@@ -72,4 +72,9 @@ public class PayMentController extends BaseController {
         });
         return map;
     }
+
+    @GetMapping("/getPort")
+    private String getPort() {
+        return port;
+    }
 }

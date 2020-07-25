@@ -6,7 +6,7 @@ spring:
 
 payMent:
   # url: http://localhost:8001/
-  server: http://CLOUD-PAYMENT-SERVER/
+  server: http://cloud-payment-server/
 
 eureka:
   client:

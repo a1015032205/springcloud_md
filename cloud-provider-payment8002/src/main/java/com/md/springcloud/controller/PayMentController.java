@@ -55,7 +55,6 @@ public class PayMentController extends BaseController {
     private Object getServerInfo() {
         //获得服务ID
         List<String> services = discoveryClient.getServices();
-
         HashMap<Object, Object> map = new LinkedHashMap<>(16);
         map.put("服务名称", services);
         services.forEach(name -> {
@@ -71,8 +70,11 @@ public class PayMentController extends BaseController {
                 map.put(name, info);
             });
         });
-
-
         return map;
+    }
+
+    @GetMapping("/getPort")
+    private String getPort() {
+        return port;
     }
 }
