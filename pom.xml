@@ -22,6 +22,7 @@
         <module>cloud-consumer-zk</module>
         <module>cloud-consumer-consul</module>
         <module>cloud-provider-payment8007-Consul</module>
+        <module>cloud-consumer-openfeign</module>
     </modules>
     <!-- 统一jar包版本管理-->
     <properties>

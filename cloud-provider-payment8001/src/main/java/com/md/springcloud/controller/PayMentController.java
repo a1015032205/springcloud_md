@@ -15,6 +15,7 @@ import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: 秒度
@@ -76,6 +77,17 @@ public class PayMentController extends BaseController {
 
     @GetMapping("/getPort")
     private String getPort() {
+        return port;
+    }
+
+
+    @GetMapping("/feign/timeout")
+    private String timeOut() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return port;
     }
 }
