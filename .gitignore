@@ -2,4 +2,8 @@
 .idea/
 .gitignore
 target/
+test/
 *.iml
+*.cmd
+mvnw
+.mvn/
