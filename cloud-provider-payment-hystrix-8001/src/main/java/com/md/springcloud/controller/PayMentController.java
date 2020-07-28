@@ -92,15 +92,18 @@ public class PayMentController extends BaseController {
     }
 
     @GetMapping("/isok/{id}")
-    private Object isOk(@PathVariable("id")String id) {
+    private Object isOk(@PathVariable("id") String id) {
         return payMentService.isOk(id);
     }
 
     @GetMapping("/isTimeOut")
-    private Object getPort(@RequestParam("id")String id) {
+    private Object getPort(@RequestParam("id") String id) {
         return payMentService.isTimeOut(id);
     }
 
-
+    @GetMapping("/serviceFuse/{id}")
+    public Object serviceFuse(@PathVariable("id") int id) {
+        return payMentService.serviceFuse(id);
+    }
 
 }

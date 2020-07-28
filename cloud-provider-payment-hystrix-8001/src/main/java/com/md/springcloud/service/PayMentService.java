@@ -1,7 +1,6 @@
 package com.md.springcloud.service;
 
 import com.md.springcloud.pojo.PayMent;
-import org.apache.ibatis.annotations.Param;
 
 /**
  * @Author: 秒度
@@ -14,9 +13,11 @@ public interface PayMentService {
 
     int create(PayMent payMent);
 
-    PayMent getPayMentById(@Param("id") Long id);
+    PayMent getPayMentById(Long id);
 
     Object isOk(String id);
 
     Object isTimeOut(String id);
+
+    Object serviceFuse(int id);
 }

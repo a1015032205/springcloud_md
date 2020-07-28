@@ -48,12 +48,12 @@ public class PayMentServiceImpl implements PayMentService {
     }
 
     @Override
-    @HystrixCommand(fallbackMethod = "isTimeOutFallBask",commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "5000")
+    @HystrixCommand(fallbackMethod = "isTimeOutFallBask", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")
     })
     public Object isTimeOut(String id) {
         try {
-         //   int a = 0 / 0;
+            //   int a = 0 / 0;
             TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -64,7 +64,28 @@ public class PayMentServiceImpl implements PayMentService {
         return str;
     }
 
-    private Object isTimeOutFallBask(String id){
+    private Object isTimeOutFallBask(String id) {
         return Thread.currentThread().getName() + "  程序超时或出错       IS   TIME OUT " + id;
+    }
+
+
+    @Override
+    @HystrixCommand(fallbackMethod = "serviceFuseFallbackMethod", commandProperties = {
+            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),//开启断路器
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),//请求次数
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"),//时间窗口期
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "40"),//失败率达到多少熔断
+    })
+    public Object serviceFuse(int id) {
+        if (id < 0) {
+            throw new RuntimeException("id不能小于0");
+        }
+
+        return Thread.currentThread().getName() + "  >>>>>>>>>>>>>>>  " + id;
+    }
+
+
+    public Object serviceFuseFallbackMethod(int id) {
+        return Thread.currentThread().getName() + "   Id不能小于0！ " + "  >>>>>>  " + id;
     }
 }

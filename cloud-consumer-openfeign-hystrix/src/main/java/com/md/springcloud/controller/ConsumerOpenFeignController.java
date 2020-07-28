@@ -2,6 +2,7 @@ package com.md.springcloud.controller;
 
 
 import com.md.springcloud.service.OpenFeignService;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/order/hystrix")
+@DefaultProperties(defaultFallback = "isTimeOutFallBaskPublic")
 public class ConsumerOpenFeignController {
 
     @Autowired
@@ -22,7 +24,9 @@ public class ConsumerOpenFeignController {
 
 
     @GetMapping(value = "/isok/{id}")
-    private String isOk(@PathVariable("id") String id) {
+    @HystrixCommand
+    public String isOk(@PathVariable("id") String id) {
+        int i = 0 / 0;
         return openFeignService.isOk(id);
     }
 
@@ -30,12 +34,23 @@ public class ConsumerOpenFeignController {
     @HystrixCommand(fallbackMethod = "isTimeOutFallBask", commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
     })
-    private String isTimeOut(@RequestParam("id") String id) {
+    public String isTimeOut(@RequestParam("id") String id) {
+        int i = 0 / 0;
         return openFeignService.isTimeOut(id);
     }
 
-    private String isTimeOutFallBask(@RequestParam("id") String id) {
-
-        return Thread.currentThread().getName() + "  我是80   垃圾系统  " + id;
+    public String isTimeOutFallBask(@RequestParam("id") String id) {
+        return Thread.currentThread().getName() + "  我是80 MD 又出异常 又超时了！  " + id;
     }
+
+    public String isTimeOutFallBaskPublic() {
+        return Thread.currentThread().getName() + " 全局降级方法 ";
+    }
+
+    @GetMapping(value = {"/getServerInfo"})
+    public Object getServerInfo() {
+        return openFeignService.getServerInfo();
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package com.md.springcloud.service;
 
+import com.md.springcloud.service.fallback.OpenFeignServiceFallBackImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Date: 2020-07-25 19:39
  * @Description:
  */
-@FeignClient(value = "CLOUD-PAYMENT-HYSTRIX-SERVER")
+@FeignClient(value = "CLOUD-PAYMENT-HYSTRIX-SERVER",fallback = OpenFeignServiceFallBackImpl.class)
 @Component
 public interface OpenFeignService {
 
@@ -22,4 +23,6 @@ public interface OpenFeignService {
     @GetMapping(value = {"/PayMent/Hystrix/isTimeOut"})
     String isTimeOut(@RequestParam("id")String id);
 
+    @GetMapping(value = {"/PayMent/Hystrix/getServerInfo"})
+     Object getServerInfo();
 }
