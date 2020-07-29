@@ -25,7 +25,7 @@
         <module>cloud-consumer-openfeign</module>
         <module>cloud-provider-payment-hystrix-8001</module>
         <module>cloud-consumer-openfeign-hystrix</module>
-        <module>cloud-consumer-hystrix-dashboard9001</module>
+        <module>cloud-hystrix-dashboard9001</module>
     </modules>
     <!-- 统一jar包版本管理-->
     <properties>
