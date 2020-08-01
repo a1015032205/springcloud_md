@@ -2,6 +2,7 @@ package com.md.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
 /**
@@ -10,7 +11,7 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
  * @Date 2020/7/29 上午10:55
  * @Description
  */
-@SpringBootApplication
+@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
 @EnableHystrixDashboard
 public class HystrixDashBoard9001 {
 	public static void main(String[] args) {

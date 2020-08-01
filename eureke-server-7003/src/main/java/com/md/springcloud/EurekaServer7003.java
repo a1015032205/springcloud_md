@@ -2,6 +2,7 @@ package com.md.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
@@ -10,7 +11,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  * @Date: 2020-07-15 21:36
  * @Description:
  */
-@SpringBootApplication
+@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
 @EnableEurekaServer
 public class EurekaServer7003 {
     public static void main(String[] args) {
