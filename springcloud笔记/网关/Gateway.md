@@ -114,7 +114,11 @@
 
 ![image-20200730224511533](Gateway.assets/image-20200730224511533.png)
 
-# 过滤器
+![image-20200801000714051](Gateway.assets/image-20200801000714051.png)
+
+# ![image-20200801000742128](Gateway.assets/image-20200801000742128.png)
+
+过滤器
 
 ![image-20200730224643808](Gateway.assets/image-20200730224643808.png)
 
@@ -130,6 +134,12 @@
 
 ![image-20200730224935968](Gateway.assets/image-20200730224935968.png)
 
-![image-20200730230729437](Gateway.assets/image-20200730230729437.png)
+# 注意是GlobalFilter！！！ 不是GatewayFilter！！
 
-问题  config和filter都失效
+![image-20200731234849281](Gateway.assets/image-20200731234849281.png)
+
+![image-20200731234936587](Gateway.assets/image-20200731234936587.png)
+
+![image-20200731234859926](Gateway.assets/image-20200731234859926.png)
+
+![image-20200731234912157](Gateway.assets/image-20200731234912157.png)

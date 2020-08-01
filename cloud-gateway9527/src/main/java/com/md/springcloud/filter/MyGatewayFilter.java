@@ -1,8 +1,8 @@
 package com.md.springcloud.filter;
 
 import cn.hutool.core.util.StrUtil;
-import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
+import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,6 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * @Author: 秒度
@@ -19,7 +18,7 @@ import java.util.List;
  * @Description: 过滤器
  */
 @Component
-public class MyGatewayFilter implements GatewayFilter, Ordered {
+public class MyGatewayFilter implements GlobalFilter, Ordered {
 
     /**
      * @param exchange 类似士request
@@ -48,19 +47,4 @@ public class MyGatewayFilter implements GatewayFilter, Ordered {
         return 0;
     }
 
-
-    @Override
-    public ShortcutType shortcutType() {
-        return null;
-    }
-
-    @Override
-    public List<String> shortcutFieldOrder() {
-        return null;
-    }
-
-    @Override
-    public String shortcutFieldPrefix() {
-        return null;
-    }
 }
