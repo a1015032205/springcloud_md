@@ -15,7 +15,7 @@
         <module>common-db</module>
         <module>eureka-server-7001</module>
         <module>eureka-server-7002</module>
-        <module>eureke-server-7003</module>
+        <module>eureka-server-7003</module>
         <module>cloud-provider-payment8002</module>
         <module>cloud-provider-payment8003</module>
         <module>cloud-provider-payment8005-zk</module>
@@ -29,6 +29,10 @@
         <module>cloud-gateway9527</module>
         <module>cloud-config3344</module>
         <module>cloud-config-client3355</module>
+        <module>cloud-config-client3366</module>
+        <module>cloud-stream-rabbitmq-provider8801</module>
+        <module>cloud-stream-rabbitmq-consumer8802</module>
+        <module>cloud-stream-rabbitmq-consumer8803</module>
     </modules>
     <!-- 统一jar包版本管理-->
     <properties>

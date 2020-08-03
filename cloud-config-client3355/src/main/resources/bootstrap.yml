@@ -12,7 +12,11 @@ spring:
       uri: http://127.0.0.1:3344/  #配置中心地址
       username: a1015032205
       password: a5268413
-
+  rabbitmq: #rabbit相关配置 15672是管理页面 5372时访问页面
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   client:
@@ -33,7 +37,7 @@ eureka:
     lease-expiration-duration-in-seconds: 30
 
 
- #暴露监控端点
+  #暴露监控端点
 management:
   endpoints:
     web:

@@ -40,38 +40,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
-
+        <!--添加消息总线rabbitmq支持-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
     </dependencies>
 
-    <build>
-        <resources>
-            <!-- 打包java里mapper的xml文件 -->
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                    <include>**/*.yml</include>
-                    <include>static/**</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-            <!-- 打包resource里的项目配置文件 -->
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                    <include>**/*.yml</include>
-                    <include>**/*.properties</include>
-                    <include>static/**</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-        </resources>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 </project>

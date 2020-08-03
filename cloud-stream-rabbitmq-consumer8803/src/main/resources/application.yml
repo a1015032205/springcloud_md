@@ -1,0 +1,43 @@
+server:
+  port: 8803
+
+spring:
+  application:
+    name: cloud-stream-rabbit-consumer
+  cloud:
+      stream:
+        binders: #在此处配置要绑定的rabbitmq的服务消息
+          defaultRabbit: #表示定义的名称  用户binding整合
+            type: rabbit #消息组件的类型
+            environment: #设置rabbitmq的相关环境配置
+              spring:
+                rabbitmq:
+                  host: 127.0.0.1
+                  port: 5672
+                  username: guest
+                  password: guest
+        bindings: #服务的整合处理
+          input: #这个名字是一个通道的名称
+            destination: studyExchange #表示要使用的Exchange名称定义
+            content-type: application/json #设置消息类型 本次为json 文本则设置为："text/plain"
+            binder: defaultRabbit #设置要绑定的消息服务的具体设置
+            group: cloud-A
+
+
+eureka:
+  client:
+    #将自己注入eureka
+    register-with-eureka: true
+    #是否从eureka抓取已有的注册信息，默认为true，单节点无所谓，集群必须为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      # defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    #访问路径显示IP地址
+    prefer-ip-address: true
+    instance-id: stream-consumer8803.com
+    #eureka客户端向服务端发送心跳时间间隔  默认30秒
+    lease-renewal-interval-in-seconds: 30
+    #eureka服务端在收到最后一次心跳后的等待时间上限 默认90秒  超时剔除服务
+    lease-expiration-duration-in-seconds: 30

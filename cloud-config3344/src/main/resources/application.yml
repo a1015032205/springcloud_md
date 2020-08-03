@@ -11,7 +11,11 @@ spring:
           uri: https://github.com/a1015032205/springcloud-config
           default-label: master
           search-paths: springcloud-config #搜索目录
-
+  rabbitmq: #rabbit相关配置 15672是管理页面 5372时访问页面
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 eureka:
   client:
     #将自己注入eureka
@@ -31,3 +35,9 @@ eureka:
     lease-expiration-duration-in-seconds: 30
 
 
+  #rabbitmy相关配置  暴露bus刷新的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
