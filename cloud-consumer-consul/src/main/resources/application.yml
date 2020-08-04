@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: cloud-consumer-80
+    zipkin:
+      base-url: http://localhost:9411
+    sleuth:
+      sampler:
+        probability: 1  #采样率 0-1之间 1代表全部采集
   cloud:
     consul:
       host: localhost
