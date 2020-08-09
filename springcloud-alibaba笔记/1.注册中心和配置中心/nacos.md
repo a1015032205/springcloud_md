@@ -168,3 +168,7 @@ DataID 就是dev  test 环境区别
 启动3个nacos 加入 -p 端口
 
 ![image-20200806220826182](nacos.assets/image-20200806220826182.png)
+
+![image-20200809191819698](nacos.assets/image-20200809191819698.png)
+
+![image-20200809191917336](nacos.assets/image-20200809191917336.png)

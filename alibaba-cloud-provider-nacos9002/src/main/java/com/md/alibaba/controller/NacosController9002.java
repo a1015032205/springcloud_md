@@ -19,6 +19,7 @@ public class NacosController9002 {
     @Value("${server.port}")
     private String serverPort;
 
+
     @GetMapping
     public String getServerPort(){
         return "nacos服务提供者：" + serverPort;

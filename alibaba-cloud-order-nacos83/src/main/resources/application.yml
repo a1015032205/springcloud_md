@@ -7,7 +7,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848  #nacos地址
+        server-addr: 192.168.26.129:1111  #nacos地址
 
 
 management:
@@ -17,4 +17,4 @@ management:
         include: '*'
 
 payMent:
-  server: http://nacosServer/
+  server: http://nacos-provider/
