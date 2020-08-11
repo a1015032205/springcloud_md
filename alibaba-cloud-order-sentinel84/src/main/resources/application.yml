@@ -1,9 +1,14 @@
 server:
-  port: 8401
+  port: 84
+
+
+payMent:
+  server: http://sentinel-payment-provider/
+
 
 spring:
   application:
-    name: sentinel-8401
+    name: sentinel-Order-Server
   cloud:
     nacos:
       discovery:
@@ -14,14 +19,6 @@ spring:
         dashboard: 127.0.0.1:8080
         #默认8719地址  如果被占用  从8719依次往后面+1扫描
         port: 8719
-      datasource:
-        ds1:
-          nacos:
-            server-addr: 127.0.0.1:8848  #nacos地址
-            dataId: sentinel-config
-            groupId: DEFAULT_GROUP
-            data-type: json
-            rule-type: flow
 
 
 management:
@@ -29,3 +26,7 @@ management:
     web:
       exposure:
         include: '*'
+#激活sentinel对fegin的支持
+feign:
+  sentinel:
+    enabled: true
