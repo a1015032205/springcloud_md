@@ -41,6 +41,7 @@
         <module>alibaba-cloud-provider-sentinel9003</module>
         <module>alibaba-cloud-provider-sentinel9004</module>
         <module>alibaba-cloud-order-sentinel84</module>
+        <module>alibaba-cloud-seata-order-server2001</module>
     </modules>
     <!-- 统一jar包版本管理-->
     <properties>
