@@ -26,7 +26,7 @@
     insert into t_order (user_id, product_id, `count`, 
       money, `status`)
     values (#{userId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}, 
-      #{money,jdbcType=DECIMAL}, #{status,jdbcType=INTEGER})
+      #{money,jdbcType=DECIMAL}, 0)
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.md.alibaba.pojo.TOrder" useGeneratedKeys="true">
     insert into t_order
@@ -95,4 +95,10 @@
       `status` = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+    <update id="updateStatus" parameterType="Integer">
+        update t_order
+        set `status` = 1
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

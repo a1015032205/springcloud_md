@@ -3,6 +3,7 @@ package com.md.alibaba.pojo;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * t_order
@@ -33,7 +34,7 @@ public class TOrder implements Serializable {
     /**
      * 金额
      */
-    private Long money;
+    private BigDecimal money;
 
     /**
      * 0:创建中 1:已完结

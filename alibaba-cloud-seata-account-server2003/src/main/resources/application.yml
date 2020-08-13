@@ -1,0 +1,40 @@
+server:
+  port: 2003
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/seata_account?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: a5268413
+    type: com.alibaba.druid.pool.DruidDataSource
+  application:
+    name: seata-account-server2003
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: default
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848  #nacos地址
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+#激活sentinel对fegin的支持
+feign:
+  hystrix:
+    enabled: false
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.md.alibaba.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    io:
+      seata: info

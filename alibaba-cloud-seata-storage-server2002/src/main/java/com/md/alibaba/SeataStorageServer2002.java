@@ -14,8 +14,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class SeataOrderServer2001 {
+public class SeataStorageServer2002 {
     public static void main(String[] args) {
-        SpringApplication.run(SeataOrderServer2001.class);
+        SpringApplication.run(SeataStorageServer2002.class);
     }
 }

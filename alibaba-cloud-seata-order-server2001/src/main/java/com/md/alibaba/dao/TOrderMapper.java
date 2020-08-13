@@ -14,4 +14,6 @@ public interface TOrderMapper {
     int updateByPrimaryKeySelective(TOrder record);
 
     int updateByPrimaryKey(TOrder record);
+
+    int updateStatus(Integer id);
 }

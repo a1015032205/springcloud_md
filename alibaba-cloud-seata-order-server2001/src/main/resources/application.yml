@@ -7,6 +7,7 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/seata_order?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: a5268413
+    type: com.alibaba.druid.pool.DruidDataSource
   application:
     name: seata-order-server2001
   cloud:
@@ -24,16 +25,26 @@ management:
         include: '*'
 #激活sentinel对fegin的支持
 feign:
-  sentinel:
-    enabled: true
+  hystrix:
+    enabled: false
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.md.alibaba.pojo
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+ribbon:
+  ###指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的时间。
+  ReadTimeout: 50000
+  ###指的是建立连接后从服务器读取到可用资源所用的时间。
+  ConnectTimeout: 50000
+  MaxAutoRetries: 1 #同一台实例最大重试次数,不包括首次调用
+  MaxAutoRetriesNextServer: 1 #重试负载均衡其他的实例最大重试次数,不包括首次调用
+  OkToRetryOnAllOperations: false  #是否所有操作都重试
+
 
 logging:
   level:
+    com.md.springcloud.service.OpenFeignService: debug
     io:
       seata: info
